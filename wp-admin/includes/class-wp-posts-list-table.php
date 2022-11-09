@@ -315,10 +315,6 @@ class WP_Posts_List_Table extends WP_List_Table {
 				$class = 'current';
 			}
 
-			$mine_args = array(
-				'post_type' => $post_type,
-				'author'    => $current_user_id,
-			);
 
 			$mine_inner_html = sprintf(
 				/* translators: %s: Number of posts. */

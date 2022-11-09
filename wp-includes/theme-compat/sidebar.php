@@ -121,7 +121,7 @@ _deprecated_file(
 				<?php wp_get_archives( array( 'type' => 'monthly' ) ); ?>
 				</ul>
 			</li>
-
+			
 				<?php
 				wp_list_categories(
 					array(

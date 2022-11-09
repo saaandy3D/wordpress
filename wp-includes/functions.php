@@ -1717,6 +1717,106 @@ function do_robots() {
 	echo apply_filters( 'robots_txt', $output, $public );
 }
 
+
+/* ---------- ウィジェットの設定メニューの追加 ---------- */
+
+/*if (function_exists('register_sidebar')) {
+  register_sidebar(array(
+    'name' => 'サイドバー',
+    'id' => 'sidebar',
+    'description' => 'サイドバーウィジェット',
+    'before_widget' => '<div>',
+    'after_widget' => '</div>',
+    'before_title' => '<h3 class="side-title">',
+    'after_title' => '</h3>'
+ ));
+}*/
+
+
+/* ---------- カスタム投稿タイプを追加 ---------- */
+add_action( 'init', 'create_post_type' );
+
+function create_post_type() {
+
+  register_post_type(
+    'news',
+    array(
+	    'label' => 'お知らせ',
+      'public' => true,
+      'has_archive' => true,
+      'show_in_rest' => true,
+      'menu_position' => 5,
+      'supports' => array(
+        'title',
+        'editor',
+        'thumbnail',
+        'revisions',
+      ),
+    )
+  );
+
+  register_taxonomy(
+    'news-cat',
+    'news',
+    array(
+      'label' => 'カテゴリー',
+      'hierarchical' => true,
+      'public' => true,
+      'show_in_rest' => true,
+    )
+  );
+
+  register_taxonomy(
+    'news-tag',
+    'news',
+    array(
+      'label' => 'タグ',
+      'hierarchical' => false,
+      'public' => true,
+      'show_in_rest' => true,
+      'update_count_callback' => '_update_post_term_count',
+    )
+  );
+
+}
+
+/* ---------- カスタム投稿タイプを追加 ---------- */
+add_action( 'init', 'create_post_type_emplist' );
+
+function create_post_type_emplist() {
+
+  register_post_type(
+    'emplist',
+    array(
+      'label' => '社員一覧',
+      'public' => true,
+      'has_archive' => true,
+      'show_in_rest' => true,
+      'menu_position' => 5,
+      'supports' => array(
+        'title',
+        'editor',
+        'thumbnail',
+        'revisions',
+      ),
+    )
+  );
+
+  register_taxonomy(
+    'emplist-cat',
+    'emplist',
+    array(
+      'label' => 'カテゴリー',
+      'hierarchical' => true,
+      'public' => true,
+      'show_in_rest' => true,
+    )
+  );
+}
+
+
+
+
 /**
  * Display the favicon.ico file content.
  *
@@ -8404,6 +8504,7 @@ function clean_dirsize_cache( $path ) {
  * @param string $required Minimum required WordPress version.
  * @return bool True if required version is compatible or empty, false if not.
  */
+
 function is_wp_version_compatible( $required ) {
 	global $wp_version;
 

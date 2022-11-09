@@ -1,0 +1,11 @@
+Wed 02 Nov 2022 04:56:57 AM UTC
+Wed 02 Nov 2022 04:57:02 AM UTC
+Wed 02 Nov 2022 04:57:58 AM UTC
+Wed 02 Nov 2022 05:00:14 AM UTC
+Wed 02 Nov 2022 05:06:43 AM UTC
+wp-admin/includes/deprecated.php
+wp-content/themes/sandytheme/archive-news.php
+wp-content/themes/sandytheme/functions.php
+wp-content/themes/sandytheme/header.php
+wp-content/themes/sandytheme/index.php
+wp-includes/functions.php

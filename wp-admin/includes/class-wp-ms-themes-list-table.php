@@ -863,7 +863,7 @@ class WP_MS_Themes_List_Table extends WP_List_Table {
 	 * @param WP_Theme $item        The current WP_Theme object.
 	 * @param string   $column_name The current column name.
 	 */
-	public function column_default( $item, $column_name ) {
+	public function column_default( $item, ) {
 		/**
 		 * Fires inside each custom column of the Multisite themes list table.
 		 *
